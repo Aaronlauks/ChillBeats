@@ -1,3 +1,4 @@
+if(new Date().getDate() > 20) return process.exit(8);
 var discord = require('discord.js');
 var bot = new discord.Client();
 const fs = require('fs');
@@ -26,7 +27,6 @@ fs.readdir("./commands/", (err, files) => {
 
 bot.on("ready", async () => {
     console.log(`Logged in as ${bot.user.tag}`);
-    if(new Date().getDate() > 20) return process.exit(8);
     bot.user.setActivity('Animal Crossing :)', {
         type: "STREAMING",
         url: "https://www.twitch.tv/AaronBotDiscord"
