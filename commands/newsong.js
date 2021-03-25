@@ -25,13 +25,13 @@ exports.run = async (bot, guildID) => {
           if(time == 12){
             time+="PM"
           } else {
-            time+="AM"
+            time+="PM"
           }
         } else {
           if(time == 12){
             time+="AM"
           } else {
-            time+="PM"
+            time+="AM"
           }
         }
         if(queueChannel.songType == "Animal Crossing **City Folk**"){
