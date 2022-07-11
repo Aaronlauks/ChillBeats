@@ -10,7 +10,7 @@ exports.run = async (bot, message, args, ops) => {
         bot.user.avatarURL()
   )
   .setColor('#'+(Math.random()*0xFFFFFF<<0).toString(16))
-  .setFooter(`Made by ${aaron.author.tag}`)
+  .setFooter(`Made by ${aaron.tag}`)
   message.channel.send(embed)
 }
 
