@@ -1,6 +1,12 @@
-if(new Date().getDate() > 20) return process.exit(8);
-var discord = require('discord.js');
-var bot = new discord.Client();
+const {Client, IntentsBitField} = require("discord.js");
+const bot = new Client({
+    intents:[
+        IntentsBitField.Flags.Guilds,
+        IntentsBitField.Flags.GuildMembers,
+        IntentsBitField.Flags.GuildMessages,
+        IntentsBitField.Flags.MessageContent,
+    ]
+});
 const fs = require('fs');
 const config = require("./config.json");
 const mongoose = require('mongoose');
@@ -44,7 +50,7 @@ bot.on("ready", async () => {
       });
 });
 
-bot.on('message', async message => {
+bot.on('messageCreate', async message => {
   let queueChannel = await queueVoice.findOne({
     guildID: message.guild.id
   });
@@ -96,7 +102,7 @@ bot.on('message', async message => {
     }
 });
 
-bot.on('message', async message => { //this event is fired, whenever the bot sees a new message
+bot.on('messageCreate', async message => { //this event is fired, whenever the bot sees a new message
   let queueChannel = await queueVoice.findOne({
     guildID: message.guild.id
   });
